@@ -6,11 +6,10 @@ import {
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from 'firebase/firestore';
 import { app, db } from "../../firebase/firebase";
-import { onAuthStateChanged } from "firebase/auth";
 
 const initialState = {
-  user: undefined,
-  loading: false,
+  user: null,
+  loading: true,
   error: null,
 };
 
@@ -76,6 +75,7 @@ const authSlice = createSlice({
   reducers: {
     setCurrentUser: (state, action) => {
       state.user = action.payload;
+			state.loading = false;
     },
   },
   extraReducers: (builder) => {
@@ -87,11 +87,6 @@ const authSlice = createSlice({
       .addMatcher(isAnyOf(signUp.rejected, signIn.rejected), (state, action) => {
         state.loading = false;
         state.error = action.error.message;
-      })
-      .addMatcher(isAnyOf(signUp.fulfilled, signIn.fulfilled), (state, action) => {
-        state.loading = false;
-        state.error = null;
-        // state.user = action.payload;
       })
   },
 });

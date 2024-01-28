@@ -5,7 +5,6 @@ import { signUp } from "../app/feature/authSlice";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { doc, setDoc } from "firebase/firestore";
 import InputLabel from "@mui/material/InputLabel";
 import Input from "@mui/material/Input";
 import InputAdornment from "@mui/material/InputAdornment";
@@ -13,7 +12,6 @@ import IconButton from "@mui/material/IconButton";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import FormControl from "@mui/material/FormControl";
-import { db } from "../firebase/firebase";
 import Logo from "./Logo";
 import Footer from "./Footer";
 import { validateCredentials } from "../utils/validation";
@@ -175,7 +173,7 @@ export default function SignUp() {
             </span>
           )}
           <Button type="submit" variant="contained" className="p-[12px]">
-            Sign in
+            Sign up
           </Button>
         </form>
       </div>
