@@ -65,21 +65,7 @@ export const deleteTodo = createAsyncThunk(
   }
 );
 
-// export const editTodo = createAsyncThunk(
-//   "todo/editTodo",
-//   async ({ id, title, task }, thunkAPI) => {
-//     try {
-//       const todoRef = doc(db, "todos", id);
 
-//       await updateDoc(todoRef, { title, task });
-
-//       return { id, title, task };
-//     } catch (error) {
-//       console.error("Error updating todo:", error);
-//       throw error;
-//     }
-//   }
-// );
 
 export const editTodoStatus = createAsyncThunk(
   "todo/editTodoStatus",
